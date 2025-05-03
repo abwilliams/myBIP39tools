@@ -14,7 +14,7 @@ class TestModule1(unittest.TestCase):
         Returns: none
         """
         result = function_from_module1()
-        self.assertEqual(result, "Hello from module1")
+        self.assertEqual(result, "Hello from inside module1")
 
 if __name__ == "__main__":
     unittest.main()
