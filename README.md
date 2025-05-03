@@ -1,5 +1,4 @@
 # Template for python project
-
  
     python                      # project root directory
     ├── .venv                   # virtual environmnent directory 
@@ -34,4 +33,9 @@
     Activate virtual environmnent
         $ source venv/bin/activate
 
-    All calls made from the project root directory python/
+    All calls made from the project root directory myBIP39tools/
+
+
+The BIP39 English Seed words were sourced from : -
+    https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt
+
