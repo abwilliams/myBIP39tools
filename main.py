@@ -1,7 +1,7 @@
 # main.py
 """
-This module serves as the entry point for the project.
-It contains the main function that orcestrates the execution of the project.
+This module serves as the entry point for the project, the main purpose of which is to learn how to code in VCS.
+It contains the main function that orcestrates the execution of the project i.e. - main; module1; module2
 """
 import logging
 from modules.module1 import function_from_module1

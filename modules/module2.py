@@ -9,8 +9,8 @@ class class_from_module2():
     Attributes : (str): message
     """
     def __init__(self):
-        self.message = "Hello from class in module2"
-        logging.info("Instance of class_from_module2 created.")
+        self.message = "Hello from inside a class in module2"
+        logging.info("IThis is an instance of a class created in module2.")
 
 
     

@@ -9,6 +9,6 @@ def function_from_module1():
     """
     logging.info("Executing function_from_module1.")
     pass
-    return "Hello from module1"
+    return "Hello from inside module1"
 
 
