@@ -6,6 +6,7 @@ It contains the main function that orcestrates the execution of the project i.e.
 import logging
 from modules.module1 import function_from_module1
 from modules.module2 import class_from_module2
+from modules.seedwords import SeedWordClass
 
 # initialise logging - INFO, WARNING, ERROR, CRITICAL
 logging.basicConfig(
@@ -16,8 +17,7 @@ logging.basicConfig(
 
 def main():
     """
-    This is the main function of the program.
-    This program does XYZ and calls other functions
+    This is the program entry point which calls all other functions.
     Returns : none
     """
     logging.info("Program started.")
@@ -29,7 +29,10 @@ def main():
     logging.info(f"Result from module2: {instance.message}")   
 
     # ... rest of your code
-    
+    seed_words = SeedWordClass()
+    logging.info(f"Result from seedwords module: {seed_words.message}") 
+
+
     logging.info("Program terminated successfully.")
 
 if __name__ == "__main__":
