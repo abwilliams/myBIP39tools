@@ -37,5 +37,5 @@
 
 
 The BIP39 English Seed words were sourced from : -
-    https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt
+    https://raw.githubusercontent.com/bitcoin/bips/refs/heads/master/bip-0039/english.txt
 
