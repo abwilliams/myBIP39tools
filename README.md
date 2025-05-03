@@ -2,7 +2,7 @@
 
  
     python                      # project root directory
-    ├── venv                    # virtual environmnent directory 
+    ├── .venv                   # virtual environmnent directory 
     ├── main.py                 # entry point for program 
     ├── modules                 # modules directory
     │   ├── __init__.py         # package file for modules
@@ -29,11 +29,9 @@
         $ pip install -r requirements.txt 
 
     Create virtual environmnent :
-        $ python -m venv venv
+        $ python -m venv .venv
 
     Activate virtual environmnent
         $ source venv/bin/activate
 
     All calls made from the project root directory python/
-
-
