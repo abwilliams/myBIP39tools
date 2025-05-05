@@ -33,7 +33,7 @@ def main():
     # seed_words.show_language()
     word_list = seed_words.get_word_list()
 
-    print(len(word_list))
+    logging.info(f"Word list length is : " + str(len(word_list)))
 
     logging.info("Program terminated successfully.")
 
