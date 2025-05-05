@@ -10,5 +10,5 @@ class class_from_module2():
     """
     def __init__(self):
         self.message = "Hello from inside a class in module2"
-        logging.info("IThis is an instance of a class created in module2.")
+        logging.info("This is an instance of a class created in module2.")
 
