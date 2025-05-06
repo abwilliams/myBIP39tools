@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # main.py
 """
 This is the entry point for the project, the main purpose of which is to learn how to code in VCS.
