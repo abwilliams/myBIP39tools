@@ -20,24 +20,17 @@ def main():
     """
     logging.info("Program started.")
 
-    # result = function_from_module1()
-    # logging.info(f"Result from module1: {result}")
-    # instance = class_from_module2()
-    # logging.info(f"Result from module2: {instance.message}")
-
     # ... rest of your code
     seed_words = SeedWordClass()
-    # logging.info(f"Result from seedwords module: {seed_words.message}") 
-
+    
     seed_words.set_language("en")
-    # seed_words.show_language()
+    seed_words.show_language()
     word_list = seed_words.get_word_list()
 
-    logging.info(f"Word list length is : " + str(len(word_list)))
+    print(word_list[333])
 
     logging.info("Program terminated successfully.")
 
 if __name__ == "__main__":
     main()
-
 
