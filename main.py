@@ -6,7 +6,7 @@ This is the entry point for the project, the main purpose of which is to learn h
 """
 
 import logging
-# import argparse
+import argparse
 # import requests     # TESTING ONLY
 # import json         # TESTING ONLY
 from modules.seedwords import SeedWordClass
@@ -26,14 +26,15 @@ def main():
     logging.info("Program started.")
 
     # # This example requires 'import argparse'.
-    # parser = argparse.ArgumentParser(description="Create a Bitcoin pass phrase.")
-    # parser.add_argument('filename', help='Word list file to be used.', type=str)
-    # parser.add_argument('second', help='second number', type=str)
-    # args = parser.parse_args()
-    # print(args)
-    # print(args.filename)        print(filename)
+    parser = argparse.ArgumentParser(description="Create a Bitcoin pass phrase.")
+    parser.add_argument('language', help='Language of the word list file to be used.', type=str)
+    parser.add_argument('number_of_words', help='The number of seed words - 12 or 24', type=str)
+    args = parser.parse_args()
+    print(args)
+    print(args.language)
+#    print(filename)
 
-    # print(args.second)
+    print(args.number_of_words)
 
     # ... rest of your code
     seed_words = SeedWordClass()
