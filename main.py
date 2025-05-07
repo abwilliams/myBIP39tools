@@ -41,6 +41,8 @@ def main():
     print(f"The current seed word language is set to '{seed_words.get_language()}'." )
     word_list = seed_words.get_word_list()
 
+    
+
     print(word_list[333])
 
     logging.info("Program terminated successfully.")

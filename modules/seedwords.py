@@ -3,6 +3,7 @@
 import logging
 import os
 import binascii
+import random
 
 class SeedWordClass():
     """
@@ -15,6 +16,7 @@ class SeedWordClass():
     def __init__(self):
         self.message = "Inside SeedWordClass()"
         self.language = "XX"
+        self.list_size = 2048
         logging.info("Instance of SeedWordClass() created.")
 
     def set_language(self, language):
@@ -43,6 +45,10 @@ class SeedWordClass():
         with open(filename, "rt", encoding="utf-8") as file:
             for line in file.readlines():
                 word_list.append(line.strip())
+        
+        if len(word_list) != self.list_size:
+            logging.critical(f"BIP39 Word List - incorrect length.")
+        
         return word_list
 
 
