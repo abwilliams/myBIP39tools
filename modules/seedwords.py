@@ -21,7 +21,33 @@ class SeedWordClass():
 
     def set_language(self, language):
         """Sets (and checks) the BIP39 language to en, fr, de, es, cn... etc"""
-        self.language = language
+        match language:
+            case "en":
+                self.language = language
+                return
+            case "es":
+                self.language = language
+                return
+            case "de":
+                self.language = language
+                return
+            case "fr":
+                self.language = language
+                return
+            case "cn":
+                self.language = language
+                return
+            case "xx":
+                self.language = language
+                return
+            case "":
+                self.language = "Selected Nothing Error."
+                return
+            case _:
+                self.language = "Selected UNKNOWN Error."
+                return
+            
+        # self.language = language
         logging.info(f"The BIP39 seed word language has been set to : - {self.language}")
         return
 
@@ -39,7 +65,7 @@ class SeedWordClass():
         """
         # logging.info("Executing function get_word_list().")
         filename = "bip39-" + self.language + ".txt"
-        logging.info(f"The seed word language file has been set to : '{filename}' .")
+        logging.info(f"The seed word language file is '{filename}' .")
 
         word_list = []
         with open(filename, "rt", encoding="utf-8") as file:
