@@ -11,12 +11,14 @@ class SeedWordClass():
         set_language();     passed the two letter language code en, de, fr, es... etc.
         get_language();     returns the two letter language code.
         get_word_list();    returns a cleaned array of BIP39 words.
+        get_seed_words():   returns a 12 or 24 BIP39 word list as an array.
     Attributes : (str): message
     """
     def __init__(self):
-        self.message = "Inside SeedWordClass()"
-        self.language = "XX"
+        self.message = "Inside SeedWordClass() - setting defaults - 12 English words."   
+        self.language = "en"
         self.list_size = 2048
+        self.sp_length = 12
         logging.info("Instance of SeedWordClass() created.")
 
     def set_language(self, language):
@@ -76,5 +78,14 @@ class SeedWordClass():
             logging.critical(f"BIP39 Word List - incorrect length.")
         
         return word_list
+    
+    def set_seed_words(self, number_of_words):
+        # logging.info(f"Debug: number_of_words = {number_of_words}")  # Debug print
+        # logging.info(f"Debug: seed_phrase_length = {self.sp_length}")  # Debug print
+        self.sp_length = number_of_words        # NOTE NO CHECKS MADE     
+        # logging.info(f"The length of the BIP39 seed phrase has been set to : - {self.sp_length}")
+        return
 
-
+    def get_seed_words(self):
+        """Returns the length of the BIP39 seed phrase (i.e. 12 or 24."""
+        return self.sp_length

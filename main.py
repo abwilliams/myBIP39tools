@@ -43,13 +43,17 @@ def main():
     # ... rest of your code
     seed_words = SeedWordClass()
     seed_words.set_language(args.language)
-    logging.info(f"The seed word language has been set to '{seed_words.get_language()}'." )
-    word_list = seed_words.get_word_list()
+    logging.info(f"The seed word language in main() has been set to '{seed_words.get_language()}'." )
+    seed_words.set_seed_words(args.number_of_words)
+    logging.info(f"The seed phrase length in main() has been set to '{seed_words.get_seed_words()}'." )
+
+    # word_list = seed_words.get_word_list()
     
-    print(f"The first word is : '{word_list[0]}'.")     
-    # NOTE blank first word in xx seed word file
-    print(f"The 256th word is : '{word_list[255]}'.")
-    print(f"The last word is  : '{word_list[2047]}'.")
+    # print(f"The first word is : '{word_list[0]}'.")     
+    # # NOTE blank first word in xx seed word file
+    # print(f"The 256th word is : '{word_list[255]}'.")
+    # print(f"The last word is  : '{word_list[2047]}'.")
+
 
     logging.info("Program terminated successfully.")
     return
