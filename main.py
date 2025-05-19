@@ -47,6 +47,9 @@ def main():
     seed_words.set_seed_words(args.number_of_words)
     logging.info(f"The seed phrase length in main() has been set to '{seed_words.get_seed_words()}'." )
 
+    # Get 12 or 24 random numbers between 0 and 2047
+    seed=seed_words.get_random_numbers( args.number_of_words )
+    print(f"Seed words are {seed}.")
     # word_list = seed_words.get_word_list()
     
     # print(f"The first word is : '{word_list[0]}'.")     

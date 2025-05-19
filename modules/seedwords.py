@@ -89,3 +89,10 @@ class SeedWordClass():
     def get_seed_words(self):
         """Returns the length of the BIP39 seed phrase (i.e. 12 or 24."""
         return self.sp_length
+
+    def get_random_numbers(self, n):
+        """Returns an array of 12 or 24 random numbers between 0 and 2047."""
+        logging.info(f"Debug: returning array [0,10,20..100,110].")     # Debug print
+        logging.info(f"Debug: n = {n}.")     # Debug print
+        return [0,10,20,30,40,50,60,70,80,90,100,110]
+
