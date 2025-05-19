@@ -32,9 +32,7 @@ def main():
     parser.add_argument('number_of_words', help='The number of seed words - 12 or 24', type=str)
     args = parser.parse_args()
 
-    print(args)
-    print(args.language)
-    print(args.number_of_words)
+    logging.info(f"\nargs : {args}, Language : {args.language}, Number of Words : {args.number_of_words}.\n")
 
     # Parse arguments here - "" language string is also signalled in SeedWordsClass.
     # Also parse for unknown language and incorrect number of words ie. != 12 or 24.
