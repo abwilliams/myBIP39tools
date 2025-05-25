@@ -21,37 +21,36 @@ class SeedWordClass():
         self.sp_length = 12
         logging.info("Instance of SeedWordClass() created.")
 
-    def set_language(self, language):
+    def set_language(self, BIP39lang):
         """Sets (and checks) the BIP39 language to en, fr, de, es, cn... etc"""
-        match language:
+        match BIP39lang:
             case "en":
-                self.language = language
+                self.language = BIP39lang
                 return
             case "es":
-                self.language = language
+                self.language = BIP39lang
                 return
             case "de":
-                self.language = language
+                self.language = BIP39lang
                 return
             case "fr":
-                self.language = language
+                self.language = BIP39lang
                 return
             case "cn":
-                self.language = language
+                self.language = BIP39lang
                 return
             case "xx":
-                self.language = language
+                self.language = BIP39lang
                 return
             case "":
-                self.language = "Selected Nothing Error."
+                self.language = "ERROR - Selected Nothing."
                 return
             case _:
-                self.language = "Selected UNKNOWN Error."
+                self.language = "ERROR - UNKNOWN Error."
                 return
-            
         # self.language = language
-        logging.info(f"The BIP39 seed word language has been set to : - {self.language}")
-        return
+        # logging.info(f"The BIP39 seed word language has been set to : - {self.language}")
+        return self.language
 
     def get_language(self):
         """ Returns the currently set BIP39 seed word language."""
@@ -65,26 +64,28 @@ class SeedWordClass():
         Strips whitespace and one word per element.
         Returns : list
         """
-        # logging.info("Executing function get_word_list().")
         filename = "bip39-" + self.language + ".txt"
-        logging.info(f"The seed word language file is '{filename}' .")
-
+        logging.info(f"Loading word_list array with the contents of '{filename}'.")
         word_list = []
         with open(filename, "rt", encoding="utf-8") as file:
             for line in file.readlines():
                 word_list.append(line.strip())
         
         if len(word_list) != self.list_size:
-            logging.critical(f"BIP39 Word List - incorrect length.")
-        
+            logging.critical(f"ERROR - BIP39 Word List - incorrect length.")
+            
         return word_list
     
     def set_seed_words(self, number_of_words):
         # logging.info(f"Debug: number_of_words = {number_of_words}")  # Debug print
         # logging.info(f"Debug: seed_phrase_length = {self.sp_length}")  # Debug print
-        self.sp_length = number_of_words        # NOTE NO CHECKS MADE     
-        # logging.info(f"The length of the BIP39 seed phrase has been set to : - {self.sp_length}")
-        return
+        if (number_of_words == 24):
+            self.sp_length = 24
+            # logging.info(f"BIP39 seed phrase length is {number_of_words} :'{self.sp_length}'")
+        else:
+            self.sp_length = 12        # NOTE NO CHECKS MADE
+        logging.info(f"The length of the BIP39 seed phrase has been set to : - {self.sp_length}")
+        return self.sp_length
 
     def get_seed_words(self):
         """Returns the length of the BIP39 seed phrase (i.e. 12 or 24."""
@@ -92,7 +93,7 @@ class SeedWordClass():
 
     def get_random_numbers(self, n):
         """Returns an array of 12 or 24 random numbers between 0 and 2047."""
-        logging.info(f"Debug: returning array [0,10,20..100,110].")     # Debug print
-        logging.info(f"Debug: n = {n}.")     # Debug print
+        # logging.info(f"Debug: returning array [0,10,20..100,110].")     # Debug print
+        # logging.info(f"Debug: n = {n}.")     # Debug print
         return [0,10,20,30,40,50,60,70,80,90,100,110]
 
