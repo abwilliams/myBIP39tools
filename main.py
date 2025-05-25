@@ -49,7 +49,6 @@ def main():
     seed=seed_words.get_random_numbers( args.number_of_words )
     print(f"Seed words are {seed}.")
     # word_list = seed_words.get_word_list()
-    embassy-erratic-squib.local
     # print(f"The first word is : '{word_list[0]}'.")     
     # # NOTE blank first word in xx seed word file
     # print(f"The 256th word is : '{word_list[255]}'.")

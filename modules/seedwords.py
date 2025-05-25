@@ -18,7 +18,7 @@ class SeedWordClass():
         self.message = "Inside SeedWordClass() - setting defaults - 12 English words."   
         self.language = "en"
         self.list_size = 2048
-        self.sp_length = 12
+        self.sp_length = None
         logging.info("Instance of SeedWordClass() created.")
 
     def set_language(self, BIP39lang):
@@ -76,16 +76,38 @@ class SeedWordClass():
             
         return word_list
     
+    # def set_seed_words(self, number_of_words):
+    #     # logging.info(f"Debug: number_of_words = {number_of_words}")  # Debug print
+    #     # logging.info(f"Debug: seed_phrase_length = {self.sp_length}")  # Debug print
+    #     if (number_of_words == 12):
+    #         self.sp_length = 12
+    #         # logging.info(f"BIP39 seed phrase length is {number_of_words} :'{self.sp_length}'")
+    #     else:
+    #         self.sp_length = 24        # NOTE NO CHECKS MADE
+    #     logging.info(f"The length of the BIP39 seed phrase has been set to : - {self.sp_length}")
+    #     return self.sp_length
+
     def set_seed_words(self, number_of_words):
-        # logging.info(f"Debug: number_of_words = {number_of_words}")  # Debug print
-        # logging.info(f"Debug: seed_phrase_length = {self.sp_length}")  # Debug print
-        if (number_of_words == 24):
+        print(f"Debug: number_of_words = {number_of_words}")  # Debug print
+        if number_of_words == 12:
+            self.sp_length = 12
+            logging.info(f"12 - The length of the BIP39 seed phrase passed to set_seed_words is: {number_of_words}")
+            print(f"Debug: Valid case 12")  # Debug print
+        elif number_of_words == 24:
             self.sp_length = 24
-            # logging.info(f"BIP39 seed phrase length is {number_of_words} :'{self.sp_length}'")
+            logging.info(f"24 - The length of the BIP39 seed phrase passed to set_seed_words is: {number_of_words}")
+            print(f"Debug: Valid case 24")  # Debug print
         else:
-            self.sp_length = 12        # NOTE NO CHECKS MADE
-        logging.info(f"The length of the BIP39 seed phrase has been set to : - {self.sp_length}")
+            self.sp_length = 0
+            logging.info(f"ERROR 0 - The length of the BIP39 seed phrase passed to set_seed_words is: {number_of_words}")
+            print(f"Debug: Error case")  # Debug print
+
+        logging.info(f"The length of the BIP39 seed phrase has been set to: {self.sp_length}")
         return self.sp_length
+
+
+
+
 
     def get_seed_words(self):
         """Returns the length of the BIP39 seed phrase (i.e. 12 or 24."""
