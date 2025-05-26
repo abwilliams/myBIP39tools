@@ -35,7 +35,7 @@ def main():
     parser.add_argument('number_of_words', help='The number of seed words. [12|24]', type=int)
     args = parser.parse_args()
 
-    # logging.info(f"\n\nargs : {args}, Language : {args.language}, Number of Words : {args.number_of_words}.\n")
+    logging.info(f"\n\nargs : {args}, Language : {args.language}, Number of Words : {args.number_of_words}.\n")
 
     # ... rest of the code
 

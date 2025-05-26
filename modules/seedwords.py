@@ -30,6 +30,7 @@ class SeedWordClass():
 
     def set_language(self, BIP39lang):
         """Sets (and checks) the BIP39 language to en, fr, de, es, cn... etc"""
+        logging.info(f"LAnguage = {BIP39lang}")
         match BIP39lang:
             case "en":
                 self.language = BIP39lang
