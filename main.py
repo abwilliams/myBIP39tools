@@ -24,26 +24,26 @@ def main():
     main() program entry point.
     Returns : none
     """
+    # Consider seperating arg parsing into its own module and ouside SeedWordClass.
+    # Parse arguments, unknown language and incorrect number of words ie. != 12 or 24.
+
     logging.info("Program started.")
 
     # import argparse to take 
     parser = argparse.ArgumentParser(description="Create a 12 or 24 word BIP39 pass phrase.")
-    parser.add_argument('language', help='Language of the word list file to be used.', type=str)
-    parser.add_argument('number_of_words', help='The number of seed words - 12 or 24', type=str)
+    parser.add_argument('language', help='Two letter code of the language word list to be used.', type=str)
+    parser.add_argument('number_of_words', help='The number of seed words. [12|24]', type=int)
     args = parser.parse_args()
 
-    logging.info(f"\n\nargs : {args}, Language : {args.language}, Number of Words : {args.number_of_words}.\n")
+    # logging.info(f"\n\nargs : {args}, Language : {args.language}, Number of Words : {args.number_of_words}.\n")
 
-    # Parse arguments here - "" language string is also signalled in SeedWordsClass.
-    # Also parse for unknown language and incorrect number of words ie. != 12 or 24.
-    # Consider seperating arg parsing into its own module and ouside SeedWordClass.
+    # ... rest of the code
 
-    # ... rest of your code
     seed_words = SeedWordClass()
     seed_words.set_language(args.language)
-    # logging.info(f"The seed word language is '{seed_words.get_language()}'." )
     seed_words.set_seed_words(args.number_of_words)
-    logging.info(f"The seed phrase length is '{seed_words.get_seed_words()}'." )
+    # logging.info(f"The seed word language is '{seed_words.get_language()}'." )
+    # logging.info(f"The seed phrase length has been set to '{seed_words.get_seed_words()}'." )
 
     # Get 12 or 24 random numbers between 0 and 2047
     seed=seed_words.get_random_numbers( args.number_of_words )

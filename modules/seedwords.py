@@ -8,18 +8,21 @@ import random
 class SeedWordClass():
     """
     This class will handle access to the BIP39 seed words
-        set_language();     passed the two letter language code en, de, fr, es... etc.
+        set_language();     passed the lowercase two letter language code en, de, fr, es... etc.
         get_language();     returns the two letter language code.
-        get_word_list();    returns a cleaned array of BIP39 words.
-        get_seed_words():   returns a 12 or 24 BIP39 word list as an array.
+        set_BIP39_list();   returns a cleaned ordered array[2048] of BIP39 words.
+        set_seed_words():   creates an array of 12 or 24 BIP39 words.
+        get_seed_words():   returns the length [12|24] of the BIP39 word list.
+        set_random_numbers(): returns a 12 or 24 BIP39 word list as an array
     Attributes : (str): message
     """
     def __init__(self):
         self.message = "Inside SeedWordClass() - setting defaults - 12 English words."   
         self.language = "en"
         self.list_size = 2048
+        self.BIP39_list = [self.list_size]
         self.sp_length = None
-        logging.info("Instance of SeedWordClass() created.")
+        # logging.info("Instance of SeedWordClass() created.")
 
     def set_language(self, BIP39lang):
         """Sets (and checks) the BIP39 language to en, fr, de, es, cn... etc"""
@@ -48,16 +51,14 @@ class SeedWordClass():
             case _:
                 self.language = "ERROR - UNKNOWN Error."
                 return
-        # self.language = language
-        # logging.info(f"The BIP39 seed word language has been set to : - {self.language}")
-        return self.language
+        return
 
     def get_language(self):
         """ Returns the currently set BIP39 seed word language."""
         # print(f"The Seed Word Language is : - {self.language}")
         return self.language
     
-    def get_word_list(self):
+    def set_BIP39_list(self):
         """
         Returns the text contents of filename as an array.
         Assumes a text file input with one word per line.
@@ -75,39 +76,17 @@ class SeedWordClass():
             logging.critical(f"ERROR - BIP39 Word List - incorrect length.")
             
         return word_list
-    
-    # def set_seed_words(self, number_of_words):
-    #     # logging.info(f"Debug: number_of_words = {number_of_words}")  # Debug print
-    #     # logging.info(f"Debug: seed_phrase_length = {self.sp_length}")  # Debug print
-    #     if (number_of_words == 12):
-    #         self.sp_length = 12
-    #         # logging.info(f"BIP39 seed phrase length is {number_of_words} :'{self.sp_length}'")
-    #     else:
-    #         self.sp_length = 24        # NOTE NO CHECKS MADE
-    #     logging.info(f"The length of the BIP39 seed phrase has been set to : - {self.sp_length}")
-    #     return self.sp_length
 
     def set_seed_words(self, number_of_words):
-        print(f"Debug: number_of_words = {number_of_words}")  # Debug print
         if number_of_words == 12:
             self.sp_length = 12
-            logging.info(f"12 - The length of the BIP39 seed phrase passed to set_seed_words is: {number_of_words}")
-            print(f"Debug: Valid case 12")  # Debug print
         elif number_of_words == 24:
             self.sp_length = 24
-            logging.info(f"24 - The length of the BIP39 seed phrase passed to set_seed_words is: {number_of_words}")
-            print(f"Debug: Valid case 24")  # Debug print
         else:
             self.sp_length = 0
-            logging.info(f"ERROR 0 - The length of the BIP39 seed phrase passed to set_seed_words is: {number_of_words}")
-            print(f"Debug: Error case")  # Debug print
-
-        logging.info(f"The length of the BIP39 seed phrase has been set to: {self.sp_length}")
-        return self.sp_length
-
-
-
-
+            logging.info(f"ERROR invalid seed phrase: {number_of_words}")
+       
+        return
 
     def get_seed_words(self):
         """Returns the length of the BIP39 seed phrase (i.e. 12 or 24."""
