@@ -20,9 +20,10 @@ class SeedWordClass():
         self.message = "Inside SeedWordClass() - setting defaults - 12 English words."   
         self.language = "en"
         self.list_size = 2048
-        self.BIP39_list = [self.list_size]
-        self.sp_length = None
-        # logging.info("Instance of SeedWordClass() created.")
+        self.bip39_array = [self.list_size]
+        self.sp_length = 12
+        self.bip39_file = "bip39en.txt"
+        # logging.info("Instance of SeedWordClass() with default values created.")
 
     def set_language(self, BIP39lang):
         """Sets (and checks) the BIP39 language to en, fr, de, es, cn... etc"""
@@ -58,12 +59,12 @@ class SeedWordClass():
         # print(f"The Seed Word Language is : - {self.language}")
         return self.language
     
-    def set_BIP39_list(self):
+    def set_bip39_array(self):
         """
         Returns the text contents of filename as an array.
         Assumes a text file input with one word per line.
         Strips whitespace and one word per element.
-        Returns : list
+        Returns : array[2048]
         """
         filename = "bip39-" + self.language + ".txt"
         logging.info(f"Loading word_list array with the contents of '{filename}'.")
@@ -75,8 +76,12 @@ class SeedWordClass():
         if len(word_list) != self.list_size:
             logging.critical(f"ERROR - BIP39 Word List - incorrect length.")
             
+        self.bip39_list = word_list
         return word_list
 
+    def get_bip39_array(self):
+        return self.bip39_array
+    
     def set_seed_words(self, number_of_words):
         if number_of_words == 12:
             self.sp_length = 12
