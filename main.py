@@ -44,11 +44,11 @@ def main():
     seed_words.set_seed_words(args.number_of_words)
     # logging.info(f"The seed word language is '{seed_words.get_language()}'." )
     # logging.info(f"The seed phrase length has been set to '{seed_words.get_seed_words()}'." )
-    seed=seed_words.get_random_numbers(seed_words.get_bip39_file())
+    seed_words.set_bip39_array()
     # Get 12 or 24 random numbers between 0 and 2047
 
-    print(f"DEBUG Seed words are {seed}.")
-    # print(f"DEBUG Filename = {seed_words.get_bip39_file()}.")
+    # logging.info(f"Seed words are {seed_words.get_random_numbers(seed_words.get_bip39_file())}.")
+    # logging.info(f"Filename = {seed_words.get_bip39_file()}.")
 
     # word_list = seed_words.get_word_list()
     # print(f"The first word is : '{word_list[0]}'.")     
