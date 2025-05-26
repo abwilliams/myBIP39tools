@@ -10,7 +10,10 @@ class SeedWordClass():
     This class will handle access to the BIP39 seed words
         set_language();     passed the lowercase two letter language code en, de, fr, es... etc.
         get_language();     returns the two letter language code.
-        set_BIP39_list();   returns a cleaned ordered array[2048] of BIP39 words.
+        set_bip39_array();  sets a cleaned ordered array[2048] of BIP39 words.
+        get_bip39_array();  returns the BIP39 ordered array[2048] of words.
+        set_bip39_file();   sets the BIP39 word list filename.
+        set_bip39_file();   returns the BIP39 word list filename.
         set_seed_words():   creates an array of 12 or 24 BIP39 words.
         get_seed_words():   returns the length [12|24] of the BIP39 word list.
         set_random_numbers(): returns a 12 or 24 BIP39 word list as an array
@@ -22,7 +25,7 @@ class SeedWordClass():
         self.list_size = 2048
         self.bip39_array = [self.list_size]
         self.sp_length = 12
-        self.bip39_file = "bip39en.txt"
+        self.bip39_file = "bip39-en.txt"
         # logging.info("Instance of SeedWordClass() with default values created.")
 
     def set_language(self, BIP39lang):
@@ -59,6 +62,13 @@ class SeedWordClass():
         # print(f"The Seed Word Language is : - {self.language}")
         return self.language
     
+    def set_bip39_file(self):
+        self.bip39_file = "bip39-" + self.get_language() + ".txt"
+        return
+    
+    def get_bip39_file(self):
+        return self.bip39_file
+
     def set_bip39_array(self):
         """
         Returns the text contents of filename as an array.

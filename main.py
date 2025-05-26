@@ -48,6 +48,9 @@ def main():
     # Get 12 or 24 random numbers between 0 and 2047
     seed=seed_words.get_random_numbers( args.number_of_words )
     print(f"Seed words are {seed}.")
+
+    print(f"DEBUG Filename = {seed_words.get_bip39_file()}.")
+
     # word_list = seed_words.get_word_list()
     # print(f"The first word is : '{word_list[0]}'.")     
     # # NOTE blank first word in xx seed word file
