@@ -8,14 +8,14 @@ import random
 class SeedWordClass():
     """
     This class will handle access to the BIP39 seed words
-        set_language();     passed the lowercase two letter language code en, de, fr, es... etc.
-        get_language();     returns the two letter language code.
-        set_bip39_array();  sets a cleaned ordered array[2048] of BIP39 words.
-        get_bip39_array();  returns the BIP39 ordered array[2048] of words.
-        set_bip39_file();   sets the BIP39 word list filename.
-        set_bip39_file();   returns the BIP39 word list filename.
-        set_seed_words():   creates an array of 12 or 24 BIP39 words.
-        get_seed_words():   returns the length [12|24] of the BIP39 word list.
+        set_language();       passed the lowercase two letter language code en, de, fr, es... etc.
+        get_language();       returns the two letter language code.
+        set_bip39_array();    sets a cleaned ordered array[2048] of BIP39 words.
+        get_bip39_array();    returns the BIP39 ordered array[2048] of words.
+        set_bip39_file();     sets the BIP39 word list filename.
+        set_bip39_file();     returns the BIP39 word list filename.
+        set_seed_words():     creates an array of 12 or 24 BIP39 words.
+        get_seed_words():     returns the length [12|24] of the BIP39 word list.
         set_random_numbers(): returns a 12 or 24 BIP39 word list as an array
     Attributes : (str): message
     """
@@ -29,32 +29,40 @@ class SeedWordClass():
         # logging.info("Instance of SeedWordClass() with default values created.")
 
     def set_language(self, BIP39lang):
-        """Sets (and checks) the BIP39 language to en, fr, de, es, cn... etc"""
-        logging.info(f"LAnguage = {BIP39lang}")
+        """Sets (and checks) the BIP39 language to en, fr, de, es, cn... etc."""
+        logging.info(f"Language = {BIP39lang}")
         match BIP39lang:
             case "en":
                 self.language = BIP39lang
+                logging.info(f"English")
                 return
             case "es":
                 self.language = BIP39lang
+                logging.info(f"Spanish")
                 return
             case "de":
                 self.language = BIP39lang
+                logging.info(f"German")
                 return
             case "fr":
                 self.language = BIP39lang
+                logging.info(f"French")
                 return
             case "cn":
                 self.language = BIP39lang
+                logging.info(f"Chinese")
                 return
             case "xx":
                 self.language = BIP39lang
+                logging.info(f"XXXX-test-XXXX")
                 return
             case "":
                 self.language = "ERROR - Selected Nothing."
+                logging.info(f"NOTHING")
                 return
             case _:
                 self.language = "ERROR - UNKNOWN Error."
+                logging.info(f"UNKNOWN")
                 return
         return
 
@@ -65,6 +73,7 @@ class SeedWordClass():
     
     def set_bip39_file(self):
         self.bip39_file = "bip39-" + self.get_language() + ".txt"
+        logging.info(f"Filenam is ---> {self.bip39_file}")
         return
     
     def get_bip39_file(self):

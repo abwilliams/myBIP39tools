@@ -41,6 +41,8 @@ def main():
 
     seed_words = SeedWordClass()
     seed_words.set_language(args.language)
+    seed_words.set_bip39_file()
+    logging.info(f"In main() language file is {seed_words.get_bip39_file()}")
     seed_words.set_seed_words(args.number_of_words)
     # logging.info(f"The seed word language is '{seed_words.get_language()}'." )
     # logging.info(f"The seed phrase length has been set to '{seed_words.get_seed_words()}'." )
