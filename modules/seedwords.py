@@ -26,6 +26,7 @@ class SeedWordClass():
         self.bip39_array = []
         self.sp_length = 12
         self.bip39_file = "bip39-en.txt"
+        self.sequence = []
         # logging.info("Instance of SeedWordClass() with default values created.")
 
     def set_language(self, BIP39lang):
@@ -73,7 +74,7 @@ class SeedWordClass():
     
     def set_bip39_file(self):
         self.bip39_file = "bip39-" + self.get_language() + ".txt"
-        logging.info(f"Filenam is ---> {self.bip39_file}")
+        logging.info(f"Filename is ---> {self.bip39_file}")
         return
     
     def get_bip39_file(self):
@@ -119,7 +120,11 @@ class SeedWordClass():
 
     def get_random_numbers(self, n):
         """Returns an array of 12 or 24 random numbers between 0 and 2047."""
+        logging.info(f"The random number parameter is ... {n}")
+        for _ in range(n):
+            rn = random.randint(0, 2047)  # Generate a random number between 0 and 2047 inc.
+            self.sequence.append(rn)
         # logging.info(f"Debug: returning array [0,10,20..100,110].")     # Debug print
         # logging.info(f"Debug: n = {n}.")     # Debug print
-        return [0,10,20,30,40,50,60,70,80,90,100,110]
+        return self.sequence
 
