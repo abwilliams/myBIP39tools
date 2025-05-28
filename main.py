@@ -47,10 +47,10 @@ def main():
     seed_words.set_bip39_array()
 
     # Get 12 or 24 random numbers between 0 and 2047
-    seed_words.get_random_numbers(seed_words.get_seed_words())
+    test = seed_words.get_random_numbers(seed_words.get_seed_words())
     # logging.info(f"Seed words are {seed_words.get_random_numbers(seed_words.get_bip39_file())}.")
     # logging.info(f"Filename = {seed_words.get_bip39_file()}.")
-
+    print(f"test = {test}")
     # word_list = seed_words.get_word_list()
     # print(f"The first word is : '{word_list[0]}'.")     
     # # NOTE blank first word in xx seed word file

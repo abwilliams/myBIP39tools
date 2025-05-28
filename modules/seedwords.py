@@ -123,7 +123,8 @@ class SeedWordClass():
         logging.info(f"The random number parameter is ... {n}")
         for _ in range(n):
             rn = random.randint(0, 2047)  # Generate a random number between 0 and 2047 inc.
-            self.sequence.append(rn)
+
+            self.sequence.append(self.bip39_array[rn])
         # logging.info(f"Debug: returning array [0,10,20..100,110].")     # Debug print
         # logging.info(f"Debug: n = {n}.")     # Debug print
         return self.sequence
